@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{525A3ED9-5048-4B37-8D1B-DE9D0884529E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SomeProject.Console</RootNamespace>
+    <AssemblyName>SomeProject.Console</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoFacTest.cs" />
+    <Compile Include="EfManyToManyTest.cs" />
+    <Compile Include="EFOneToManyTest.cs" />
+    <Compile Include="EFOneToOneTest.cs" />
+    <Compile Include="EFUpdateTest.cs" />
+    <Compile Include="EFQueryTest.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SomeProject.Application.Domain\SomeProject.Application.Domain.csproj">
+      <Project>{8B33BF81-41CD-47AF-8636-84343E82D99E}</Project>
+      <Name>SomeProject.Application.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Application.ViewModel\SomeProject.Application.ViewModel.csproj">
+      <Project>{36688042-9054-4A93-93AC-272EA69303DC}</Project>
+      <Name>SomeProject.Application.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Core.Domain\SomeProject.Core.Domain.csproj">
+      <Project>{6141B0E4-1A73-4E9A-91FD-F4619F8E8495}</Project>
+      <Name>SomeProject.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Core.Dto\SomeProject.Core.Dto.csproj">
+      <Project>{8F2D2435-F654-4A85-9591-E0A4E5661F5A}</Project>
+      <Name>SomeProject.Core.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Core.Model\SomeProject.Core.Model.csproj">
+      <Project>{31EF61E0-6A9F-464E-A2DE-7CBD3CC6F69B}</Project>
+      <Name>SomeProject.Core.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Core.Repository\SomeProject.Core.Repository.csproj">
+      <Project>{2D3EBE9F-B790-4F16-8E85-F4413FA1B253}</Project>
+      <Name>SomeProject.Core.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Infrastructure.Common\SomeProject.Infrastructure.Common.csproj">
+      <Project>{ACF9AA19-B60B-4490-B0E9-50EDAB3E0421}</Project>
+      <Name>SomeProject.Infrastructure.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Infrastructure.Data\SomeProject.Infrastructure.Data.csproj">
+      <Project>{4B3A110F-7728-442C-8AAE-3294FE167117}</Project>
+      <Name>SomeProject.Infrastructure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Infrastructure.Ioc\SomeProject.Infrastructure.Ioc.csproj">
+      <Project>{458983EB-704C-4F8F-9991-3C5B992A83A4}</Project>
+      <Name>SomeProject.Infrastructure.Ioc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

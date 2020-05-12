@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B33BF81-41CD-47AF-8636-84343E82D99E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SomeProject.Application.Domain</RootNamespace>
+    <AssemblyName>SomeProject.Application.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\IAccountAppService.cs" />
+    <Compile Include="Account\impl\AccountAppService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SomeProject.Application.ViewModel\SomeProject.Application.ViewModel.csproj">
+      <Project>{36688042-9054-4A93-93AC-272EA69303DC}</Project>
+      <Name>SomeProject.Application.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Core.Domain\SomeProject.Core.Domain.csproj">
+      <Project>{6141B0E4-1A73-4E9A-91FD-F4619F8E8495}</Project>
+      <Name>SomeProject.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Core.Dto\SomeProject.Core.Dto.csproj">
+      <Project>{8F2D2435-F654-4A85-9591-E0A4E5661F5A}</Project>
+      <Name>SomeProject.Core.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Core.Model\SomeProject.Core.Model.csproj">
+      <Project>{31EF61E0-6A9F-464E-A2DE-7CBD3CC6F69B}</Project>
+      <Name>SomeProject.Core.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SomeProject.Infrastructure.Common\SomeProject.Infrastructure.Common.csproj">
+      <Project>{ACF9AA19-B60B-4490-B0E9-50EDAB3E0421}</Project>
+      <Name>SomeProject.Infrastructure.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

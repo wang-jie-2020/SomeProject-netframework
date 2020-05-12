@@ -1,0 +1,49 @@
+﻿@model SomeProject.Application.ViewModel.Account.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>登录</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LoginName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LoginName)
+            @Html.ValidationMessageFor(model => model.LoginName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsRememberLogin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsRememberLogin)
+            @Html.ValidationMessageFor(model => model.IsRememberLogin)
+        </div>
+        @Html.HiddenFor(m => m.ReturnUrl)
+        <p>
+            <input type="submit" value="登录" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("返回首页", "Index", "Home")
+</div>

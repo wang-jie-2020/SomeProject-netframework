@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (!User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("登录", "Login", "Account")
+}
+else
+{
+    <div>
+        用户 @User.Identity.Name 已登录
+        @Html.ActionLink("退出", "Logout", "Account")
+    </div>
+}
+
